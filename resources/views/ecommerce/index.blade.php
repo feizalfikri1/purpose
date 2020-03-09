@@ -4,79 +4,54 @@
 
 <!--================Home Banner Area =================-->
 @extends('layouts.ecommerce.module.menu')
-<div
-    class="hero-wrap js-fullheight"
-    style="background-image: url('assets/ecommerce/images/bg_1.jpg');"
->
-    <div class="overlay"></div>
-    <div class="container">
-        <div
-            class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
-        >
-            <h3 class="v">Purposestuff - Time to get T-shirt</h3>
-            <div class="col-md-11 ftco-animate text-center">
-                <h1>Le Stylist</h1>
-                <h2><span>Wear Your T-shirt</span></h2>
-            </div>
-            <div class="mouse">
-                <a href="#" class="mouse-icon">
-                    <div class="mouse-wheel">
-                        <span class="ion-ios-arrow-down"></span>
-                    </div>
-                </a>
-            </div>
+
+
+ <section class="ftco-section bg-light">
+    	<div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">New Shoes Arrival</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          </div>
         </div>
-    </div>
-</div>
-
-<section class="ftco-section ftco-product">
-        <div class="container">
-            <div class="row justify-content-center mb-3 pb-3">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h1 class="big">Trending</h1>
-                    <h2 class="mb-4">Trending</h2>
+    	</div>
+    	<div class="container">
+    		<div class="row">
+                @foreach ($products as $row)
+    			<div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+    				<div class="product d-flex flex-column">
+                    <a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('storage/products/' . $row->image) }}" alt="{{ $row->name }}">
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3">
+    						<div class="d-flex">
+    							<div class="cat">
+		    						<span>Lifestyle</span>
+		    					</div>
+		    					<div class="rating">
+	    							<p class="text-right mb-0">
+	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
+	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
+	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
+	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
+	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
+	    							</p>
+	    						</div>
+	    					</div>
+    						<h3><a href="{{ url('/product/' . $row->slug) }}">{{ $row->name }}</a></h3>
+    						<div class="pricing">
+	    						<p class="price"><span>Rp {{ number_format($row->price) }}</span></p>
+	    					</div>
+	    					<p class="bottom-area d-flex px-3">
+    							<a href="{{ url('/product/' . $row->slug) }}" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+    							<a href="{{ url('/product/' . $row->slug) }}" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
+    						</p>
+    					</div>
+    				</div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-slider owl-carousel ftco-animate">
-                        @forelse($products as $row)
-                        <div class="item">
-                            <div class="product">
-                                <a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('storage/products/' . $row->image) }}"
-                                        alt="{{ $row->name }}">
-                                    </a>
-                                <div class="text pt-3 px-3">
-                                    <h3><a href="#">{{ $row->name }}</a></h3>
-                                    <div class="d-flex">
-                                        <div class="pricing">
-                                            <p class="price"><span class="price">Rp {{ number_format($row->price) }}</span></p>
-                                        </div>
-                                        <div class="rating">
-                                            <p class="text-right">
-                                                <span class="ion-ios-star-outline"></span>
-                                                <span class="ion-ios-star-outline"></span>
-                                                <span class="ion-ios-star-outline"></span>
-                                                <span class="ion-ios-star-outline"></span>
-                                                <span class="ion-ios-star-outline"></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-@empty
-          @endforelse
-
-                            </div>
-                    </div>
-                    <div class="row">
-					{{ $products->links() }}
-                </div>
-
-
-            </div>
-            @endsection
+                @endforeach
+    		</div>
+    	</div>
     </section>
-
-
+@endsection
 
