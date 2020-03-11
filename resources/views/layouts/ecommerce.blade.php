@@ -60,7 +60,7 @@
 		          	<div class="text">
 		          		<span class="subheading">#New Arrival</span>
 		          		<div class="horizontal">
-				            <h1 class="mb-4 mt-3">Shoes Collection 2019</h1>
+				            <h1 class="mb-4 mt-3 - DW Ecommerce">Shoes Collection 2019</h1>
 				            <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
 
 				            <p><a href="#" class="btn-custom">Discover Now</a></p>
@@ -93,7 +93,7 @@
 	    </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    {{-- <section class="ftco-section ftco-no-pt ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters ftco-services">
           <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
@@ -131,7 +131,7 @@
           </div>
         </div>
 			</div>
-		</section>
+		</section> --}}
 
 
         @yield('content');
