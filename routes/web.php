@@ -11,11 +11,10 @@
 |
 
 */
-
+Route::get('/', 'Ecommerce\FrontController@index')->name('front.index');
 
 Auth::routes();
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('/', 'Ecommerce\FrontController@index')->name('front.index');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home'); //JADI ROUTING INI SUDAH ADA DARI ARTIKEL SEBELUMNYA TAPI KITA PINDAHKAN KEDALAM GROUPING
     Route::get('/category', 'CategoryController@index')->name('category.index');
     Route::get('/product', 'ProductController@index')->name('product.index');
@@ -28,10 +27,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('product', 'ProductController')->except(['show']); //BAGIAN INI KITA TAMBAHKAN EXCETP KARENA METHOD SHOW TIDAK DIGUNAKAN
     Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk');
     Route::post('/product/bulk', 'ProductController@massUpload')->name('product.saveBulk');
-
 });
 
-// Route::get('/', 'Ecommerce\FrontController@index')->name('front.index');
+//
 // Route::get('/produk', 'Ecommerce\FrontController@produk')->name('front.produk');
 // Route::get('/category/{slug}', 'Ecommerce\FrontController@categoryProduk')->name('front.category');
 // Route::get('/produk/{slug}', 'Ecommerce\FrontController@show')->name('front.show_produk');
